@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polytechnic Institute of Shanghai</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #be0f0fd8;
+            --secondary-color: #D4AF37;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                         url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Palastexamen-SongDynastie.jpg/960px-Palastexamen-SongDynastie.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #calculator-page {
+            background: linear-gradient(rgba(221, 216, 216, 0.9), rgba(219, 211, 211, 0.9)), 
+                         url('https://upload.wikimedia.org/wikipedia/commons/f/fb/Xu_Xianqing_part11.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-university me-2"></i>Polytechnic Institute of Shanghai</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('calculator')">Grade Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('clubs')">Clubs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home-page" class="container mt-4">
+        <div class="hero-section">
+            <div class="container">
+                <h1>Polytechnic Institute of Shanghai</h1>
+                <p class="lead">Excellence in Technical Education Since 1758.</p>
+                <p class="lead">上海理工学院 自1758年以来的卓越技术教育</p>
+                <a href="#" class="btn btn-primary btn-lg" onclick="showPage('calculator')">Calculate Your GWA | 学生成绩计算器</a>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <h2 class="section-title">About Our School | 关于我们学校</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="lead">Polytechnic Institute of Shanghai is a premier educational institution dedicated to nurturing young minds and preparing them for the challenges of the Great Consulate.</p>
+                    <p>The Mandate of Heaven (天命) has taken our traditions of academic excellence and holistic development.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Quick Facts</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">建校时间: 1758年</li>
+                                <li class="list-group-item">学生人数: 8,888+</li>
+                                <li class="list-group-item">教职工: 6767+</li>
+                                <li class="list-group-item">专业项目: 67+</li>
+                                <li class="list-group-item">学生社团: 18+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="calculator-page" class="container mt-4 hidden">
+        <h1 class="section-title">Student Grade Calculator | 学生成绩计算器</h1>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">Student Information | 学生信息</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name | 姓名</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3 class="mb-0">Enter Your Grades | 输入你的成绩</h3>
+            </div>
+            <div class="card-body">
+                <div class="row" id="gradeInputs">
+                    </div>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <button class="btn btn-primary btn-lg" py-click="calculate_gwa()">Calculate GWA</button>
+        </div>
+
+        <div id="results" class="mt-5 hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Results</h3>
+                </div>
+                <div class="card-body">
+                    <div id="studentInfo"></div>
+                    <table class="table table-striped mt-4">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Units</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gradeTable">
+                        </tbody>
+                    </table>
+                    <h3 class="mt-4">General Weighted Average: <span id="gwa" class="text-primary"></span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="clubs-page" class="container mt-4 hidden">
+        <h1 class="section-title">School Club Information</h1>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Select Club</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action active" py-click="show_club_info('robotics')">
+                                Robotics Club
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" py-click="show_club_info('ai')">
+                                AI & Machine Learning Club
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" py-click="show_club_info('engineering')">
+                                Traditional Engineering Club
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div id="club-info-container">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h5>Chilli Ong | 10-Topaz</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <py-config>
+        packages = []
+        paths = ["./main.py"]
+    </py-config>
+
+    <py-script src="./main.py" config="py-config" once></py-script>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.getElementById('home-page').classList.add('hidden');
+            document.getElementById('calculator-page').classList.add('hidden');
+            document.getElementById('clubs-page').classList.add('hidden');
+            
+            // Show selected page
+            document.getElementById(pageId + '-page').classList.remove('hidden');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            // Check if the event object is available before trying to access target
+            if (event && event.target) {
+                event.target.classList.add('active');
+            } else {
+                // Handle initial load case for home link
+                document.querySelector('.nav-link[onclick="showPage(\'home\')"]').classList.add('active');
+            }
+        }
+        
+        // Show home page by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
