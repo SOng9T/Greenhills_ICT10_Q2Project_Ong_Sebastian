@@ -247,7 +247,7 @@
 
     <script>
         function showPage(pageId) {
-            // Hide all pages
+            // Hide all pages, makes it look more professional type stuff
             document.getElementById('home-page').classList.add('hidden');
             document.getElementById('calculator-page').classList.add('hidden');
             document.getElementById('clubs-page').classList.add('hidden');
@@ -255,15 +255,15 @@
             // Show selected page
             document.getElementById(pageId + '-page').classList.remove('hidden');
             
-            // Update active nav link
+            // Update active nav link (but prefferable as well with each html point)
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
-            // Check if the event object is available before trying to access target
+            // Checks if the event object is available before trying to access target
             if (event && event.target) {
                 event.target.classList.add('active');
             } else {
-                // Handle initial load case for home link
+                // Handles initial load case for home link and yeah we're good
                 document.querySelector('.nav-link[onclick="showPage(\'home\')"]').classList.add('active');
             }
         }
@@ -277,3 +277,4 @@
     <py-script src="./main.py"></py-script>
 </body>
 </html>
+
