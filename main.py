@@ -1,4 +1,4 @@
-from pyscript import document, display
+from pyscript import document, display  # type: ignore
 import math
 
 # Using TUPLE for subjects and units (immutable) the following comments are utilized from the study notes, copied a bit of them there and from our exercises! 
@@ -151,7 +151,7 @@ def show_club_info(club_key):
                 </div>
             </div>
         """
-        display(club_info, target="club-info-container", append=False)
+        document.getElementById("club-info-container").innerHTML = club_info
 
 def initialize_grade_inputs():
     """Initialize grade input fields when page loads"""
@@ -178,5 +178,9 @@ def main():
     initialize_grade_inputs()
     initialize_club_info()
 
-# Note: The 'main()' function is now called by the <py-script src="./main.py" once> tag in the HTML.
-# No need for raw function calls at the end of this script.
+main()
+
+# Expose functions to JavaScript
+from js import window
+window.calculate_gwa = calculate_gwa
+window.show_club_info = show_club_info
