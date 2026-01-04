@@ -169,7 +169,7 @@
         </div>
 
         <div class="mt-4 text-center">
-            <button class="btn btn-primary btn-lg" py-click="calculate_gwa()">Calculate GWA</button>
+            <button class="btn btn-primary btn-lg" onclick="calculate_gwa()">Calculate GWA</button>
         </div>
 
         <div id="results" class="mt-5 hidden">
@@ -207,13 +207,13 @@
                     </div>
                     <div class="card-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active" py-click="show_club_info('robotics')">
+                            <a href="#" class="list-group-item list-group-item-action active" onclick="show_club_info('robotics')">
                                 Robotics Club
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" py-click="show_club_info('ai')">
+                            <a href="#" class="list-group-item list-group-item-action" onclick="show_club_info('ai')">
                                 AI & Machine Learning Club
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action" py-click="show_club_info('engineering')">
+                            <a href="#" class="list-group-item list-group-item-action" onclick="show_club_info('engineering')">
                                 Traditional Engineering Club
                             </a>
                         </div>
@@ -273,5 +273,7 @@
             showPage('home');
         });
     </script>
+
+    <py-script src="./main.py"></py-script>
 </body>
 </html>
